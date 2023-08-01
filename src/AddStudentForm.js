@@ -1,18 +1,23 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { createStudentBegin } from "./appSlice";
 
 const AddStudentForm = () => {
+  const dispatch = useDispatch();
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     const student = {
-        firstName: event.target.fname.value,
-        lastName: event.target.lname.value,
-        rollNo: event.target.rollNo.value,
-        standard: event.target.standard.value,
-        section: event.target.section.value,
-        bloodGroup: event.target.bGroup.value,
-        address: event.target.address.value,
-        pMobNo: event.target.pNo.value,
-    }
+      firstName: event.target.fname.value,
+      lastName: event.target.lname.value,
+      rollNo: event.target.rollNo.value,
+      standard: event.target.standard.value,
+      section: event.target.section.value,
+      bloodGroup: event.target.bGroup.value,
+      address: event.target.address.value,
+      pMobNo: event.target.pNo.value,
+    };
+    dispatch(createStudentBegin(student));
   };
 
   return (
